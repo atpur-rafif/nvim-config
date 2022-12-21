@@ -37,7 +37,7 @@ lsp.configure('sumneko_lua', {
 	},
 })
 
-lsp.cofigure('jsonls', {
+lsp.configure('jsonls', {
 	filetypes = {"json", "jsonc"},
 	settings = {
 		json = {
