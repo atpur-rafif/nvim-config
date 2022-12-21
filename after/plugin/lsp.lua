@@ -1,15 +1,5 @@
 local lsp = require('lsp-zero')
 
-require'lspconfig'.sumneko_lua.setup {
-  settings = {
-    Lua = {
-      diagnostics = {
-        globals = {'vim'},
-      },
-    },
-  },
-}
-
 lsp.preset("recommended")
 lsp.on_attach(function(client, bufnr)
   local opts = {buffer = bufnr, remap = false}
@@ -30,5 +20,15 @@ lsp.on_attach(function(client, bufnr)
   vim.keymap.set("n", "<leader>vrn", vim.lsp.buf.rename, opts)
   vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
 end)
+
+require'lspconfig'.sumneko_lua.setup {
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = {'vim'},
+      },
+    },
+  },
+}
 
 lsp.setup()

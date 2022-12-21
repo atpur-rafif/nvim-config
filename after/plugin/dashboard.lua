@@ -17,8 +17,8 @@ db.custom_center = {
 	{
 		icon = '  ',
 		desc ='File Browser                            ',
-		action =  'Ex',
-		shortcut = ':Ex'
+		action =  ':Neotree',
+		shortcut = ' F5'
 	},
 }
 

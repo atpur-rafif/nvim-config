@@ -1,5 +1,8 @@
 local neo_tree = require("neo-tree")
 
+vim.keymap.set("n", "<F5>", ":Neotree toggle<CR>", {})
+vim.keymap.set("n", "<leader>ex", ":Neotree toggle<CR>", {})
+
 neo_tree.setup({
   close_if_last_window = true,
   enable_diagnostics = false,

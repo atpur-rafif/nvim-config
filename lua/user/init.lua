@@ -18,6 +18,9 @@ set so=15
 set fillchars=eob:\ 
 set termguicolors
 
+" Close a buffer
+nnoremap <M-w> <Cmd>bdelete<CR>
+
 " Change window with <A-?> rather than <C-w-?>
 if has('nvim')
   " Terminal mode:
