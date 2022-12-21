@@ -1,3 +1,5 @@
+require("user.packer")
+
 vim.cmd([[
 
 " Just to make sure folder won't b cluttered by backup and undo file
