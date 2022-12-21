@@ -27,17 +27,17 @@ lsp.on_attach(function(client, bufnr)
   vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
 end)
 
-require('lspconfig').sumneko_lua.setup({
-  settings = {
-    Lua = {
-      diagnostics = {
-        globals = {'vim'},
-      },
-    },
-  },
+lsp.configure('sumneko_lua', {
+	settings = {
+		Lua = {
+			diagnostics = {
+				globals = {'vim'},
+			},
+		},
+	},
 })
 
-require('lspconfig').jsonls.setup({
+lsp.cofigure('jsonls', {
 	filetypes = {"json", "jsonc"},
 	settings = {
 		json = {
