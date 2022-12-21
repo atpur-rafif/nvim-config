@@ -1,4 +1,6 @@
-require('lualine').setup {
+local navic = require("nvim-navic")
+
+require('lualine').setup({
   options = {
     icons_enabled = true,
     theme = 'auto',
@@ -28,4 +30,19 @@ require('lualine').setup {
     lualine_y = {},
     lualine_z = {}
   },
-}
+  winbar = {
+	  lualine_a = {{
+		  function()
+			  local loc = navic.get_location()
+			  if (loc ~= "")
+			  then
+				return loc
+			  else
+				return " "
+			  end
+		  end,
+		  cond = navic.is_available,
+		  color = { bg='#262626' }
+	  }}
+  }
+})

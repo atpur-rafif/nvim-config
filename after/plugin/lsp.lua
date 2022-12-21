@@ -1,8 +1,14 @@
-local lsp = require('lsp-zero')
+local vim = vim
+local lsp = require("lsp-zero")
+local navic = require("nvim-navic")
 
 lsp.preset("recommended")
 lsp.on_attach(function(client, bufnr)
   local opts = {buffer = bufnr, remap = false}
+
+  if client.server_capabilities.documentSymbolProvider then
+	  navic.attach(client, bufnr)
+  end
 
   if client.name == "eslint" then
       vim.cmd.LspStop('eslint')
@@ -21,7 +27,7 @@ lsp.on_attach(function(client, bufnr)
   vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
 end)
 
-require'lspconfig'.sumneko_lua.setup {
+require('lspconfig').sumneko_lua.setup({
   settings = {
     Lua = {
       diagnostics = {
@@ -29,6 +35,56 @@ require'lspconfig'.sumneko_lua.setup {
       },
     },
   },
-}
+})
+
+require('lspconfig').jsonls.setup({
+	filetypes = {"json", "jsonc"},
+	settings = {
+		json = {
+			schemas = {
+				{
+					fileMatch = {"package.json"},
+					url = "https://json.schemastore.org/package.json"
+				},
+				{
+					fileMatch = {"tsconfig*.json"},
+					url = "https://json.schemastore.org/tsconfig.json"
+				},
+				{
+					fileMatch = {
+						".prettierrc",
+						".prettierrc.json",
+						"prettier.config.json"
+					},
+					url = "https://json.schemastore.org/prettierrc.json"
+				},
+				{
+					fileMatch = {".eslintrc", ".eslintrc.json"},
+					url = "https://json.schemastore.org/eslintrc.json"
+				},
+				{
+					fileMatch = {".babelrc", ".babelrc.json", "babel.config.json"},
+					url = "https://json.schemastore.org/babelrc.json"
+				},
+				{
+					fileMatch = {"lerna.json"},
+					url = "https://json.schemastore.org/lerna.json"
+				},
+				{
+					fileMatch = {"now.json", "vercel.json"},
+					url = "https://json.schemastore.org/now.json"
+				},
+				{
+					fileMatch = {
+						".stylelintrc",
+						".stylelintrc.json",
+						"stylelint.config.json"
+					},
+					url = "http://json.schemastore.org/stylelintrc.json"
+				}
+			}
+		}
+	}
+})
 
 lsp.setup()
