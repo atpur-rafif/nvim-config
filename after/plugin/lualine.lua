@@ -1,6 +1,10 @@
-local navic = require("nvim-navic")
+local ok1, lualine = pcall(require, "lualine")
+local ok2, navic = pcall(require, "nvim-navic")
+if not (ok1 and ok2) then
+	return
+end
 
-require('lualine').setup({
+lualine.setup({
   options = {
     icons_enabled = true,
     theme = 'auto',

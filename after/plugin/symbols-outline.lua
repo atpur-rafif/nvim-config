@@ -1,4 +1,9 @@
-require("symbols-outline").setup({
+local ok, symbols_outline = pcall(require, "symbols-outline")
+if not ok then
+	return
+end
+
+symbols_outline.setup({
   highlight_hovered_item = true,
   show_guides = true,
   auto_preview = false,
@@ -14,7 +19,7 @@ require("symbols-outline").setup({
   auto_unfold_hover = true,
   fold_markers = { '', '' },
   wrap = false,
-  keymaps = { -- These keymaps can be a string or a table for multiple keys
+  keymaps = { 
     close = {"<Esc>", "q"},
     goto_location = "<Cr>",
     focus_location = "o",

@@ -1,6 +1,8 @@
-local vim = vim
-local lsp = require("lsp-zero")
-local navic = require("nvim-navic")
+local ok1, lsp = pcall(require, "lsp-zero")
+local ok2, navic = pcall(require, "nvim-navic")
+if not (ok1 and ok2) then
+	return 
+end
 
 lsp.preset("recommended")
 lsp.on_attach(function(client, bufnr)
@@ -87,4 +89,5 @@ lsp.configure('jsonls', {
 	}
 })
 
+lsp.nvim_workspace()
 lsp.setup()

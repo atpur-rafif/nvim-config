@@ -1,5 +1,8 @@
-local home = os.getenv('HOME')
-local db = require('dashboard')
+-- local home = os.getenv('HOME')
+local ok, db = pcall(require, "dashboard")
+if not ok then
+	return
+end
 
 db.custom_center = {
 	{

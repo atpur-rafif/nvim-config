@@ -1,4 +1,7 @@
-local neo_tree = require("neo-tree")
+local ok, neo_tree = pcall(require, "neo-tree")
+if not ok then
+	return
+end
 
 vim.keymap.set("n", "<F5>", ":Neotree toggle<CR>", {})
 vim.keymap.set("n", "<leader>ex", ":Neotree toggle<CR>", {})

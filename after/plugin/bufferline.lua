@@ -1,4 +1,7 @@
-local bufferline = require("bufferline")
+local ok, bufferline = pcall(require, "bufferline")
+if not ok then
+	return
+end
 
 vim.keymap.set("n", "<M-H>", ":BufferLineCyclePrev<CR>", {})
 vim.keymap.set("n", "<M-L>", ":BufferLineCycleNext<CR>", {})
