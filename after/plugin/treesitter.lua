@@ -1,22 +1,19 @@
-local ok, treesitter = pcall(require, "nvim-treesitter.configs")
-if not ok then
+local ok1, treesitter = pcall(require, "nvim-treesitter.configs")
+local ok2, autopair = pcall(require, "nvim-autopairs")
+local ok3, autotag = pcall(require, "nvim-ts-autotag")
+if not (ok1 and ok2 and ok3) then
 	return
 end
+
+autotag.setup({})
+autopair.setup({})
+
 treesitter.setup {
-  -- A list of parser names, or "all"
   ensure_installed = { "c", "lua", "rust", "cpp", "javascript", "typescript", "vim" },
-
-  -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,
-
   auto_install = true,
-
   highlight = {
-    -- `false` will disable the whole extension
     enable = true,
-
-    -- Using this option may slow down your editor, and you may see some duplicate highlights.
-    -- Instead of true it can also be a list of languages
     additional_vim_regex_highlighting = false,
   },
 }
