@@ -2,7 +2,8 @@ local ok1, mason = pcall(require, "mason")
 local ok2, mason_config = pcall(require, "mason-lspconfig")
 local ok3, lsp_util = pcall(require, ('lspconfig.util'))
 local ok4, navic = pcall(require, "nvim-navic")
-if not (ok1 and ok2 and ok3 and ok4) then
+local ok5, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+if not (ok1 and ok2 and ok3 and ok4 and ok5) then
 	return
 end
 
@@ -34,7 +35,8 @@ local global_configs = {
 		vim.keymap.set("n", "<leader>vrr", vim.lsp.buf.references, opts)
 		vim.keymap.set("n", "<leader>vrn", vim.lsp.buf.rename, opts)
 		vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
-	end
+	end,
+	capabilities = cmp_nvim_lsp.default_capabilities(),
 }
 
 local configs = {
