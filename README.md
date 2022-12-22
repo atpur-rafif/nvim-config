@@ -11,7 +11,7 @@ Then open neovim and run `:PackerSync`
 # Plugin
 ## Core
 [Packer](https://github.com/wbthomason/packer.nvim)
-[Lsp-zero](https://github.com/VonHeikemen/lsp-zero.nvim)
+[Mason](https://github.com/williamboman/mason.nvim)
 [Treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
 
 ## Helper
