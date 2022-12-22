@@ -6,37 +6,31 @@ return require('packer').startup(function(use)
 	-- Plugin manager
 	use {'wbthomason/packer.nvim'}
 
-	-- Tab buffer
-	use {'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons'}
-
 	-- Theme
 	use {'Mofiqul/vscode.nvim'}
 
 	-- Dashboard (Welcome screen)
 	use {'glepnir/dashboard-nvim'}
 
-	-- Treesitter
-	use {'nvim-treesitter/nvim-treesitter', { run = ':TSUpdate'}}
+	-- Tab buffer (Upper part UI)
+	use {'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons'}
 
-	-- Windows bar (Breadcrumbs)
+	-- Windows bar (Breadcrumbs) (Below Tab Buffer)
 	use {
 		"SmiteshP/nvim-navic",
 		requires = "neovim/nvim-lspconfig"
 	}
 
-	-- Outline manager
-	use 'simrat39/symbols-outline.nvim'
+	-- Status line (Lower part UI)
+	use {
+		'nvim-lualine/lualine.nvim',
+		requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+	}
 
 	-- Fuzzy finder
 	use {
 		'nvim-telescope/telescope.nvim', tag = '0.1.0',
 		requires = { {'nvim-lua/plenary.nvim'} }
-	}
-
-	-- Status line
-	use {
-		'nvim-lualine/lualine.nvim',
-		requires = { 'kyazdani42/nvim-web-devicons', opt = true }
 	}
 
 	-- File Explorer
@@ -49,6 +43,13 @@ return require('packer').startup(function(use)
 			"MunifTanjim/nui.nvim",
 		}
 	}
+
+	-- Outline manager
+	use 'simrat39/symbols-outline.nvim'
+
+	-- Treesitter
+	use {'nvim-treesitter/nvim-treesitter', { run = ':TSUpdate'}}
+	use {'nvim-treesitter/playground'}
 
 	-- LSP 
 	use {
