@@ -6,6 +6,12 @@ end
 
 db.custom_center = {
 	{
+		icon = '  ',
+		desc ='File Browser                            ',
+		action =  ':Neotree',
+		shortcut = ' F5'
+	},
+	{
 		icon = '  ',
 		desc = 'Recently opened files                   ',
 		action =  'Telescope oldfiles',
@@ -16,13 +22,7 @@ db.custom_center = {
 		desc = 'Find  File                              ',
 		action = 'Telescope find_files',
 		shortcut = '\\ff'
-	},
-	{
-		icon = '  ',
-		desc ='File Browser                            ',
-		action =  ':Neotree',
-		shortcut = ' F5'
-	},
+	}
 }
 
 

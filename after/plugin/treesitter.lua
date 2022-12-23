@@ -11,9 +11,12 @@ autopair.setup({})
 treesitter.setup {
   ensure_installed = { "c", "lua", "rust", "cpp", "javascript", "typescript", "vim" },
   sync_install = false,
-  auto_install = true,
+  --auto_install = true,
   highlight = {
     enable = true,
     additional_vim_regex_highlighting = false,
   },
+  indent = {
+	  enable = true
+  }
 }
