@@ -44,6 +44,12 @@ return require('packer').startup(function(use)
 		}
 	}
 
+	-- Window picker
+	use {
+		's1n7ax/nvim-window-picker',
+		tag = 'v1.*',
+	}
+
 	-- Outline manager
 	use 'simrat39/symbols-outline.nvim'
 

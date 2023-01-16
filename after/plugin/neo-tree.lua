@@ -1,11 +1,13 @@
-local ok, neo_tree = pcall(require, "neo-tree")
-if not ok then
+local ok1, neo_tree = pcall(require, "neo-tree")
+local ok2, window_picker = pcall(require, "window-picker")
+if not (ok1 and ok2) then
 	return
 end
 
 vim.keymap.set("n", "<F5>", ":Neotree toggle<CR>", {})
 vim.keymap.set("n", "<leader>ex", ":Neotree toggle<CR>", {})
 
+window_picker.setup({})
 neo_tree.setup({
 	close_if_last_window = true,
 	enable_diagnostics = false,
